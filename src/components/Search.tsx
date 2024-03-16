@@ -1,8 +1,12 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Stack } from "@mui/material";
+import { MealType, RecipeApiResponse, RecipeType } from "@/modals/recipe.modal";
+
+// const KEY = "64e3f18e0ec64775b0753b8bb50183b4"; //API KEY for :- Spoonacular (https://spoonacular.com/food-api/docs)
+
 export default function Search() {
   return (
     <div>
@@ -12,19 +16,57 @@ export default function Search() {
 }
 
 function SearchBar() {
+  const [recipes, setRecipes] = useState<RecipeType | null>();
+  const [keyword, setKeyword] = useState("");
+
+  const handleKeywordChange = (event: string) => {
+    setKeyword(event);
+  };
+
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`;
+  useEffect(() => {
+    async function fetchRecipes() {
+      try {
+        const res = await fetch(url);
+        const data: RecipeApiResponse = await res.json();
+        const apiData = new RecipeType(data);
+        setRecipes(apiData);
+        console.log(keyword + " this is from try catch");
+        console.log(keyword);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchRecipes();
+  }, [url, keyword, setRecipes, setKeyword]);
+
+  const data = recipes?.meals?.map((option) => option.meal);
+  console.log(keyword);
   return (
-    <Stack spacing={2} sx={{ width: 300 }}>
-      <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={recipes.map((option) => option.title)}
-        renderInput={(params) => <TextField {...params} label="Recipe" />}
-      />
-    </Stack>
+    <>
+      <Stack spacing={2} sx={{ width: 300 }}>
+        <Autocomplete
+          id="free-solo-demo"
+          freeSolo
+          options={data || []}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Recipe"
+              onChange={(e) => handleKeywordChange(e.target.value)}
+            />
+          )}
+        />
+      </Stack>
+    </>
   );
 }
 
-const recipes = [
+// const res = await fetch(
+//   `https://www.themealdb.com/api/json/v1/1/search.php?s=cake`
+// );
+
+const data = [
   {
     title: "Chicken Fried Rice",
     ingredients: [
