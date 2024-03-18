@@ -3,7 +3,7 @@ type MealResponse = {
   strMeal: string;
   strInstructions: string;
   strSource: string;
-  strTags: string;
+  // strTags: string;
 };
 
 export type RecipeApiResponse = {
@@ -15,7 +15,7 @@ export class MealType {
   meal: string;
   instructions: string;
   source: string;
-  tags: string[];
+  // tags: string[];
 
   constructor(data: MealResponse) {
     // Use constructor for initialization
@@ -23,7 +23,7 @@ export class MealType {
     this.meal = data?.strMeal ?? "";
     this.instructions = data?.strInstructions ?? "";
     this.source = data?.strSource ?? "";
-    this.tags = data?.strTags.split(",") ?? [];
+    // this.tags = data?.strTags?.split(",") ?? [];
   }
 
   static fromApi(response: MealResponse): MealType {

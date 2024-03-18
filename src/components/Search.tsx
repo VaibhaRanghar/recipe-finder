@@ -23,22 +23,24 @@ function SearchBar() {
     setKeyword(event);
   };
 
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`;
+  
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        const res = await fetch(url);
+        const res = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`
+        );
         const data: RecipeApiResponse = await res.json();
         const apiData = new RecipeType(data);
         setRecipes(apiData);
         console.log(keyword + " this is from try catch");
-        console.log(keyword);
+        console.log(" these are recipes " + recipes);
       } catch (error) {
         console.log(error);
       }
     }
     fetchRecipes();
-  }, [url, keyword, setRecipes, setKeyword]);
+  }, [keyword]);
 
   const data = recipes?.meals?.map((option) => option.meal);
   console.log(keyword);
