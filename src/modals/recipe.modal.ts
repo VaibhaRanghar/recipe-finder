@@ -3,6 +3,7 @@ type MealResponse = {
   strMeal: string;
   strInstructions: string;
   strSource: string;
+  strMealThumb: string;
   // strTags: string;
 };
 
@@ -15,6 +16,7 @@ export class MealType {
   meal: string;
   instructions: string;
   source: string;
+  thumbnail: string;
   // tags: string[];
 
   constructor(data: MealResponse) {
@@ -23,6 +25,7 @@ export class MealType {
     this.meal = data?.strMeal ?? "";
     this.instructions = data?.strInstructions ?? "";
     this.source = data?.strSource ?? "";
+    this.thumbnail = data?.strMealThumb ?? "";
     // this.tags = data?.strTags?.split(",") ?? [];
   }
 
