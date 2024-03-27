@@ -15,7 +15,6 @@ export default function Searching() {
   useEffect(() => {
     async function fetchRecipes() {
       try {
-        debugger;
         const res = await fetch(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`
         );
@@ -46,7 +45,7 @@ export default function Searching() {
       <div className="h-max w-max p-5 bg-white text-cyan-950">
         <Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
       </div>
-      <div>{data}</div>
+      <div className="flex">{data}</div>
     </>
   );
 }
