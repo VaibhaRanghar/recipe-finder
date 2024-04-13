@@ -1,14 +1,19 @@
-"use client";
-import Search from "@/components/Search";
-import Link from "next/link";
+import Image from "next/image";
+import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 export default function Home() {
   return (
-    <div className="h-max w-max p-5 bg-red-500 text-yellow-400">
-      <h2>
-        <Link href={"/Search"}>Explore</Link>
-      </h2>
-      <h1>This is the home page of this next JS app!🎃</h1>
-    </div>
+    <>
+      <NavBar fixed={true} />
+      <div className="h-max  bg-red-500 text-yellow-400">
+        <Image
+          src={"/recipe-hero.jpg"}
+          alt={"Recipes wallpaper"}
+          width={1700}
+          height={700}
+        />{" "}
+      </div>
+    </>
   );
 }

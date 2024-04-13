@@ -1,4 +1,5 @@
 "use client";
+import NavBar from "@/components/NavBar";
 import Profile from "@/components/Profile";
 import Search from "@/components/Search";
 import { RecipeApiResponse, RecipeType } from "@/modals/recipe.modal";
@@ -41,11 +42,14 @@ export default function Searching() {
   ));
 
   return (
-    <>
-      <div className="h-max w-max p-5 bg-white text-cyan-950">
-        <Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
+    <div>
+      <NavBar fixed={false} />
+      <div className=" flex flex-col items-center">
+        <div className="w-[22vw] rounded-xl p-5 bg-white text-cyan-950 flex justify-self-center">
+          <Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
+        </div>
+        <div className="ml-[110px] flex flex-wrap">{data}</div>
       </div>
-      <div className="flex">{data}</div>
-    </>
+    </div>
   );
 }
