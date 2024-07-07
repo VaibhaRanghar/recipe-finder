@@ -4,8 +4,8 @@ import React from "react";
 export default function NavBar({ fixed }: { fixed: boolean }) {
   return (
     <div
-      className={`p-2 bg-transparent  ${
-        fixed ? "fixed top-0 left-0" : "h-max"
+      className={`p-2  ${
+        fixed ? "fixed top-0 left-0  bg-transparent" : "h-max bg-slate-950 "
       }`}
     >
       <div className="flex gap-[75vw] text-xl">

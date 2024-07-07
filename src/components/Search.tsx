@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Stack } from "@mui/material";
-import { MealType, RecipeApiResponse, RecipeType } from "@/modals/recipe.modal";
+import { RecipeType } from "@/modals/recipe.modal";
 
 export default function Search({
   recipes,

@@ -7,7 +7,7 @@ import localFont from "next/font/local";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-// Font files can be colocated inside of `pages`
+// Font files can be collocated inside of `pages`
 const myFont = localFont({ src: "./assets/go3v2.ttf" });
 
 const inter = Inter({ subsets: ["latin"] });
