@@ -1,14 +1,13 @@
 "use client";
-import NavBar from "@/components/NavBar";
 import Profile from "@/components/Profile";
-import Search from "@/components/Search";
-import Loading from "./loading";
-import Image from "next/image";
+import Loading from "../app/loading";
 
 import { RecipeApiResponse, RecipeType } from "@/modals/recipe.modal";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Search from "@/components/Search";
+import dynamic from "next/dynamic";
 
-export default function Searching() {
+export default function GetData() {
   const [recipes, setRecipes] = useState<RecipeType | null>();
   const [keyword, setKeyword] = useState<String>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -28,6 +27,7 @@ export default function Searching() {
         const data: RecipeApiResponse = await res.json();
         const apiData = new RecipeType(data);
         setRecipes(apiData);
+        console.log(apiData);
       } catch (error) {
         console.log(error);
       }
@@ -46,23 +46,16 @@ export default function Searching() {
     />
   ));
   console.log(recipes);
-  //<Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
   return (
     <div className="bg-white ">
-      <NavBar fixed={false} />
-      {/* <Image
-        src={"/search.jpg"}
-        alt="search"
-        width={1000}
-        height={1000}
-        className="w-screen h-screen fixed z-0 opacity-70"
-      /> */}
       <div className=" flex flex-col items-center relative z-10 text-slate-900">
-        <h1 className="text-8xl font-bold text-zinc-900 p-20">RECIPES</h1>
+        <Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="ml-[110px] min-h-screen  flex flex-wrap">{data}</div>
+          <div className="ml-24 mr-24 min-h-screen  flex justify-center flex-wrap">
+            {data}
+          </div>
         )}
       </div>
     </div>

@@ -18,9 +18,9 @@ export default function Profile({
 }) {
   const router = useRouter();
   return (
-    <div className="min-w-72 w-72 h-[600px] m-4 bg-[#360e5100] w-70 rounded-md font-medium">
+    <div className="min-w-72 w-72 h-[600px] m-4 bg-[#360e5100] w-70 rounded-md font-medium hover:scale-105 duration-300">
       <Image
-        className="rounded-2xl w-full p-2"
+        className="rounded-2xl w-full p-2 "
         src={img}
         width={250}
         height={200}

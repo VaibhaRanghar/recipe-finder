@@ -1,4 +1,4 @@
-type MealResponse = {
+export type MealResponse = {
   idMeal: string;
   strMeal: string;
   strInstructions: string;
