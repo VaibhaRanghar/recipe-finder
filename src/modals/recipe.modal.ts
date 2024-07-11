@@ -34,7 +34,6 @@ export class MealType {
     return new MealType(response);
   }
 }
-
 export class RecipeType {
   meals: MealType[];
 

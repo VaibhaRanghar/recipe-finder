@@ -36,7 +36,7 @@ export default function Profile({
         <Link href={tags}>{tags}</Link>
       </div> */}
       <button
-        className="bg-yellow-500 p-2 mt-4"
+        className="bg-yellow-400 p-2 mt-4 hover:bg-yellow-500 border-l-4 border-yellow-500"
         onClick={() => {
           router.push("/product");
         }}

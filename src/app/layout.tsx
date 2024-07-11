@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 
 import localFont from "next/font/local";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { RecipesProvider } from "@/context/RecipesContext";
 
 // Font files can be collocated inside of `pages`
 const myFont = localFont({ src: "./assets/go3v2.ttf" });
@@ -25,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex ">{children}</main>
+        <RecipesProvider>
+          <main className="flex ">{children}</main>
+        </RecipesProvider>
         <footer className="p-4 bg-black">
           <Footer />
         </footer>

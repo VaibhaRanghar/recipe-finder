@@ -1,10 +1,19 @@
-import dynamic from "next/dynamic";
+"use client";
+import GetData from "@/components/GetData";
+import Search from "@/components/Search";
+import { useRecipesContext } from "@/context/RecipesContext";
 
-const Data = dynamic(() => import("@/components/GetData"), { ssr: false });
 export default function Explore() {
+  const { recipes, handleKeywordChange, isLoading } = useRecipesContext();
+
   return (
     <>
-      <Data />
+      <div className="bg-white ">
+        <div className="flex flex-col items-center relative z-10 text-slate-900">
+          <Search recipes={recipes} handleKeywordChange={handleKeywordChange} />
+          <GetData recipes={recipes} isLoading={isLoading} />
+        </div>
+      </div>
     </>
   );
 }

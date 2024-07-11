@@ -1,5 +1,5 @@
 import NavBar from "@/components/NavBar";
-import { ReactNode } from "react";
+import { RecipesProvider } from "@/context/RecipesContext";
 
 export default function SearchLayout({
   children,
