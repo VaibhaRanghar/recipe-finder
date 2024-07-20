@@ -7,11 +7,13 @@ import { Button } from "@mui/material";
 
 export default function Profile({
   img,
+  id,
   name,
   desc,
   tags,
 }: {
   img: string;
+  id: string;
   name: string;
   desc: string;
   tags: string;
@@ -38,7 +40,7 @@ export default function Profile({
       <button
         className="bg-yellow-400 p-2 mt-4 hover:bg-yellow-500 border-l-4 border-yellow-500"
         onClick={() => {
-          router.push("/product");
+          router.push(`/Explore/product/${id}`);
         }}
       >
         View Details

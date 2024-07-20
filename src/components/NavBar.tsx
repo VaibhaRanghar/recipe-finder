@@ -21,6 +21,9 @@ export default function NavBar({ fixed }: { fixed: boolean }) {
           <Link className=" p-6 hover:bg-cyan-700 " href={"/Explore"}>
             Explore
           </Link>
+          <Link className=" p-6 hover:bg-cyan-700 " href={"/create"}>
+            Create
+          </Link>
         </div>
       </div>
     </div>

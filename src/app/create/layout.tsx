@@ -8,7 +8,7 @@ export default function SearchLayout({
 }) {
   return (
     <>
-      <div className="bg-white min-w-full ">
+      <div className=" min-w-full ">
         <NavBar fixed={false} />
         {children}
       </div>

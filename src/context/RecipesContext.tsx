@@ -48,6 +48,7 @@ export function RecipesProvider({ children }: { children: React.ReactNode }) {
       }
       setIsLoading(false);
       setKeyword(undefined);
+      
     }
     fetchRecipes();
   }, [keyword, recipes, recipes?.meals]);
