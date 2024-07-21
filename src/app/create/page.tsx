@@ -8,15 +8,17 @@ export default function Create() {
   const [imageUrl, setImageUrl] = useState("");
 
   const handleUpload = async (e: React.FormEvent) => {
+    
     e.preventDefault();
-    console.log("inside upload");
     const data = new FormData();
+    
     if (!imageFile) {
       console.error("No file selected for upload.");
       return;
     }
+    
     data.append("file", imageFile);
-    console.log(data.get("file"));
+    
     try {
       const res = await fetch("api/upload", {
         method: "POST",
