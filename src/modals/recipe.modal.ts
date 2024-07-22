@@ -13,10 +13,10 @@ export type RecipeApiResponse = {
 
 export class MealType {
   id: string;
-  meal: string;
-  instructions: string;
-  source: string;
-  thumbnail: string;
+  meal: string;         // Meal name.
+  instructions: string; // Instructions.
+  source: string;       // URL to orignal page of meal.
+  thumbnail: string;    // Image of meal.
   // tags: string[];
 
   constructor(data: MealResponse) {
