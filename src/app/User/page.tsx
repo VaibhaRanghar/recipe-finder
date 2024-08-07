@@ -59,7 +59,7 @@ export default function User() {
           ) : (
             <>
               <h2 className="text-2xl">Your Recipies</h2>
-              <div className="flex">{data}</div>
+              <div className="flex flex-wrap">{data}</div>
             </>
           )}
         </>

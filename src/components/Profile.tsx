@@ -33,7 +33,7 @@ export default function Profile({
         <h1 className="mt-4 ml-4 text-2xl font-bold">
           {name.length > 30 ? name.slice(0, 30) + ".." : name}
         </h1>
-        <p className="mt-4 ml-4">
+        <p className="mt-4 ml-4 break-words">
           {desc.length > 100
             ? desc[0]?.toUpperCase() + desc.slice(1, 200) + "..."
             : desc}{" "}

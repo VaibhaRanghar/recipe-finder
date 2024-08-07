@@ -24,18 +24,30 @@ function Form({
 }: {
   setImageUrl: Dispatch<SetStateAction<string>>;
 }) {
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imageFile, setImageFile] = useState<string | Blob>();
   const [page, setPage] = useState(1);
 
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!imageFile) {
+      return;
+    }
+
     const data = new FormData();
     const eventTarget = e.target as HTMLFormElement;
-    data.append("image", imageFile);
-    data.append("name", eventTarget.name.value);
-    data.append("description", eventTarget.description.value);
-    data.append("url", eventTarget.url.value);
 
+    const nameInput = eventTarget.elements.namedItem(
+      "name"
+    ) as HTMLInputElement;
+    const descriptionInput = eventTarget.elements.namedItem(
+      "description"
+    ) as HTMLInputElement;
+    const urlInput = eventTarget.elements.namedItem("url") as HTMLInputElement;
+
+    data.append("image", imageFile);
+    data.append("name", nameInput.value);
+    data.append("description", descriptionInput.value);
+    data.append("url", urlInput.value);
     try {
       const res = await fetch("api/upload", {
         method: "POST",
@@ -46,13 +58,11 @@ function Form({
 
       if (res.ok) {
         const image = await res.json();
-        console.log("this is image from res.json");
-        console.log(image);
         setImageUrl(image.filePath);
         eventTarget.myfile.value = "";
-        eventTarget.name.value = "";
-        eventTarget.description.value = "";
-        eventTarget.url.value = "";
+        nameInput.value = "";
+        descriptionInput.value = "";
+        urlInput.value = "";
       }
     } catch (error) {
       console.error("Upload failed in try catch :", error);
@@ -89,7 +99,7 @@ function Form({
         name="myfile"
         required
         onChange={(e) => {
-          return setImageFile(e.target.files?.[0]);
+          if (e.target.files?.length) return setImageFile(e.target.files[0]);
         }}
       />
 
