@@ -5,6 +5,7 @@ import Search from "@/components/Search";
 import { useRecipesContext } from "@/context/RecipesContext";
 import { RecipeType } from "@/modals/recipe.modal";
 import Loading from "../loading";
+import { tree } from "next/dist/build/templates/app-page";
 
 export default function Explore() {
   const { recipes, handleKeywordChange, isLoading } = useRecipesContext();
@@ -33,6 +34,7 @@ function DisplayData({
 }) {
   const data = recipes?.meals?.map((option) => (
     <Profile
+      details={true}
       key={option.id}
       id={option.id}
       img={option.thumbnail}

@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Button } from "@mui/material";
 
 export default function Profile({
+  details,
   img,
   id,
   name,
   desc,
   tags,
 }: {
+  details: boolean;
   img: string;
   id: string;
   name: string;
@@ -41,14 +42,18 @@ export default function Profile({
         <Link href={tags}>{tags}</Link>
       </div> */}
       </div>
-      <button
-        className="bg-yellow-400 p-2 m-4  hover:bg-yellow-500 border-l-4 border-yellow-500"
-        onClick={() => {
-          router.push(`/Explore/product/${id}`);
-        }}
-      >
-        View Details
-      </button>
+      {details ? (
+        <button
+          className="bg-yellow-400 p-2 m-4  hover:bg-yellow-500 border-l-4 border-yellow-500"
+          onClick={() => {
+            router.push(`/Explore/product/${id}`);
+          }}
+        >
+          View Details
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

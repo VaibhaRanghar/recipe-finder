@@ -12,6 +12,7 @@ export default function Home() {
           alt={"Recipes wallpaper"}
           width={1700}
           height={700}
+          className="min-w-full"
         />{" "}
       </div>
     </>

@@ -70,20 +70,18 @@ function Form({
       <label htmlFor="name">Name of your recipe.</label>
       <input type="text" name="name" required placeholder="Name" />
 
-      <label htmlFor="Url">
-        Link to the detailed page of your recipe (If there any).
-      </label>
-      <input type="text" name="url" size={40} placeholder="Url" />
-
-      <label htmlFor="description">
-        How to make ?
-      </label>
+      <label htmlFor="description">How to make ?</label>
       <textarea
         name="description"
         className="h-60"
         required
         placeholder="Instructions "
       />
+
+      <label htmlFor="Url">
+        Link to the detailed page of your recipe (If there any).
+      </label>
+      <input type="text" name="url" size={40} placeholder="Url" />
 
       <label htmlFor="myfile">Select an image of your recipe.</label>
       <input
@@ -95,7 +93,10 @@ function Form({
         }}
       />
 
-      <button className="bg-fuchsia-500 mt-10 shadow-lg shadow-fuchsia-700 text-white w-80 place-self-center p-3 rounded-full" type="submit">
+      <button
+        className="bg-fuchsia-500 mt-10 shadow-lg shadow-fuchsia-700 text-white w-80 place-self-center p-3 rounded-full"
+        type="submit"
+      >
         Submit
       </button>
     </form>

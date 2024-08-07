@@ -7,7 +7,7 @@ export default function ProductLayout({
 }) {
   return (
     <main>
-      <div className="">{children}</div>{" "}
+      <div className="min-w-full min-h-screen ">{children}</div>{" "}
     </main>
   );
 }

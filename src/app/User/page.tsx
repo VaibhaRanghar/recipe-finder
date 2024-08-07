@@ -32,6 +32,7 @@ export default function User() {
   const data = posts.map((post, index) => {
     return (
       <Profile
+        details={false}
         key={index}
         id={index.toString()}
         img={post.filePath}
@@ -41,6 +42,7 @@ export default function User() {
       />
     );
   });
+  console.log(data);
 
   return (
     <div className="text-black m-10">
@@ -48,15 +50,19 @@ export default function User() {
         <h1 className="font-bold text-5xl">Anonymous😋</h1>
       </div>
       <div className="mt-5 mb-5 mr-5">
-        {data ? (
-          <>
-            {" "}
-            <h2 className="text-2xl">Your Recipies</h2>
-            <div className="flex">{data}</div>
-          </>
-        ) : (
-          <Loading />
-        )}
+        <>
+          {data[0].props.name === "" ? (
+            <p className="mt-16 text-xl ">
+              <span className="font-bold">Note:</span> Create some recipes first
+              to see them here!👨‍🍳
+            </p>
+          ) : (
+            <>
+              <h2 className="text-2xl">Your Recipies</h2>
+              <div className="flex">{data}</div>
+            </>
+          )}
+        </>
       </div>
     </div>
   );
