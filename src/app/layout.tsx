@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <RecipesProvider>
-          <main className="flex ">{children}</main>
+          <main className="flex min-h-screen bg-gradient-to-t from-cyan-100 to-cyan-50">{children}</main>
         </RecipesProvider>
         <footer className="p-4 bg-black">
           <Footer />

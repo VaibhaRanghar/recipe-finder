@@ -11,7 +11,7 @@ export default function Explore() {
 
   return (
     <>
-      <div className="bg-white ">
+      <div className="mb-10">
         <h1 className="text-8xl text-center font-bold text-zinc-900 p-20">
           RECIPES
         </h1>

@@ -1,15 +1,14 @@
 import NavBar from "@/components/NavBar";
 import { DatabaseProvider } from "@/context/DatabaseContext";
-import { RecipesProvider } from "@/context/RecipesContext";
 
-export default function SearchLayout({
+export default function UserLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      <div className=" min-w-full ">
+      <div className="min-w-full ">
         <NavBar fixed={false} />
         <DatabaseProvider>{children}</DatabaseProvider>
       </div>
